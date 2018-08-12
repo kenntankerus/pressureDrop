@@ -1,7 +1,7 @@
 {
     "board": "esp8266:esp8266:nodemcuv2",
     "configuration": "CpuFrequency=80,FlashSize=4M1M,LwIPVariant=v2mss536,Debug=Disabled,DebugLevel=None____,FlashErase=none,UploadSpeed=115200,FlashMode=keep,FlashFreq=keep",
-    "sketch": "hardware\\TEST\\fileSystemTest\\fileSystemTest.ino",
+    "sketch": "hardware\\TEST\\connectionTest\\connectionTest.ino",
     "port": "COM3",
     "output": "C:\\Program Files (x86)\\Arduino\\arduinoOutput\\"
 }
