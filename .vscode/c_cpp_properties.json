@@ -1,0 +1,36 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "C:\\Users\\Kenn\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.4.0\\cores\\esp8266",
+                "C:\\Users\\Kenn\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.4.1\\cores\\esp8266",
+                "C:\\Users\\Kenn\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.4.1\\libraries\\ESP8266WiFi\\src",
+                "C:\\Users\\Kenn\\Documents\\Arduino\\libraries\\AutoConnect\\src",
+                "C:/Program Files (x86)/Arduino/hardware/arduino/avr/cores/arduino",
+                "C:/Users/Kenn/Documents/pressureDrop/hardware/Arduino/libraries",
+                "C:/Ruby24-x64/msys64/mingw64/include/c++/7.3.0",
+                "C:/Ruby24-x64/msys64/mingw64/include/c++/7.3.0/x86_64-w64-mingw32",
+                "C:/Ruby24-x64/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include",
+                "C:/Ruby24-x64/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/ssp"
+            ],
+            "browse": {
+                "limitSymbolsToIncludedHeaders": false,
+                "path": [
+                    "C:\\Users\\Kenn\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.4.0\\cores\\esp8266",
+                    "C:\\Users\\Kenn\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.4.1\\cores\\esp8266",
+                    "C:\\Users\\Kenn\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.4.1\\libraries\\ESP8266WiFi\\src",
+                    "C:\\Users\\Kenn\\Documents\\Arduino\\libraries\\AutoConnect\\src",
+                    "C:/Program Files (x86)/Arduino/hardware/arduino/avr/cores/arduino",
+                    "C:/Users/Kenn/Documents/pressureDrop/hardware/Arduino/libraries",
+                    "C:/Ruby24-x64/msys64/mingw64/include/c++/7.3.0",
+                    "C:/Ruby24-x64/msys64/mingw64/include/c++/7.3.0/x86_64-w64-mingw32",
+                    "C:/Ruby24-x64/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include",
+                    "C:/Ruby24-x64/msys64/mingw64/lib/gcc/x86_64-w64-mingw32/7.3.0/include/ssp"
+                ]
+            },
+            "intelliSenseMode": "msvc-x64"
+        }
+    ],
+    "version": 4
+}

@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <FS.h>
 const int NUM_SAMPLES = 10;
 const int ANALOG_PIN = 17;
 int sensorData, sensorForce;
