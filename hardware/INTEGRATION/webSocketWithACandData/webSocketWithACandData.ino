@@ -57,7 +57,7 @@ void loop(){
   if(currentMillis - previousMillis >= INTERVAL) {
     previousMillis = currentMillis;
     sensorData = analogRead(ANALOG_PIN);
-    data = map(sensorData, 313,595,0,200);
+    data = map(sensorData, 366,655,0,200);
     data_str = String(data);
 
     webSocket.broadcastTXT(data_str);
