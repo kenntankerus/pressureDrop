@@ -14,8 +14,8 @@ const int LED_PIN = 0; // Thing's onboard, green LED
 const int ANALOG_PIN = 17; // The only analog pin on the Thing
 const int DIGITAL_PIN = 12; // Digital pin to be read..was 12
 
-//used to convert temperatureF to an integer
-int pressure_int;
+int sensorData, force;
+int oldForce = 0;
 
 uint8_t remote_ip;
 uint8_t socketNumber;
@@ -53,25 +53,11 @@ else if (state == GET_SAMPLE__WAITING)
 int ADCreading = analogRead(ANALOG_PIN);
 byte ledStatus = LOW;
 
-//Scale to voltage
-float voltage = ADCreading * 3.2;
+sensorData = analogRead(ANALOG_PIN);
+force = map(sensorData,0,1024,0,45);
 
-//Steinhart–Hart voltage to temp conversion
-float Temp = log(((10240000/ADCreading) - 10000));
-Temp = 1 / (0.001129148 + (0.000234125 + (0.0000000876741 * Temp * Temp ))* Temp );
-float temperatureC = Temp - 273.15; // Convert Kelvin to Celsius
-float temperatureF = (temperatureC * 9.0)/ 5.0 + 32.0; // Celsius to Fahrenheit - comment out this line if you need Celsius
-float temperature = round(temperatureF*10)/10;
-
-//Remove the comment below to enable reading from the AD0 on your board
-pressure_int = (int) temperature;
-
-//SIMULATION
-//Comment the line below to disable the simulation
-//pressure_int = pressure_int + 1;
-
-String temp_str = String(pressure_int);
-webSocket.sendTXT(socketNumber, "wpMeter,Arduino," + temp_str + ",1");
+String force_str = String(force);
+webSocket.sendTXT(socketNumber, "wpMeter,Arduino," + force_str + ",1");
 //Serial.println("Temp sent!! ");
 //Delay sending next sample so that the web server can respond
 delay(50);
@@ -177,6 +163,7 @@ WiFi.softAP(AP_NameChar, WiFiAPPSK);
 void setup() {
 delay(1000);
 Serial.begin(9600);
+pinMode(ANALOG_PIN,INPUT);
 SPIFFS.begin();
 Serial.println();
 Serial.print("Configuring access point...");
