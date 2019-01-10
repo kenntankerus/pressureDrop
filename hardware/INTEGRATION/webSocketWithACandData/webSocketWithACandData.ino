@@ -10,7 +10,7 @@ ESP8266WebServer server(80);   //instantiate server at port 80 (http port)
 AutoConnect      Portal(server);
  
 String page = "";
-const int LED_PIN = 16;
+const int LED_PIN = 0;
 const int ANALOG_PIN = 17;
 int sensorData, data;
 String data_str;
@@ -57,7 +57,7 @@ void loop(){
   if(currentMillis - previousMillis >= INTERVAL) {
     previousMillis = currentMillis;
     sensorData = analogRead(ANALOG_PIN);
-    data = map(sensorData, 366,655,0,200);
+    data = map(sensorData,0,1024,0,45);
     data_str = String(data);
 
     webSocket.broadcastTXT(data_str);
