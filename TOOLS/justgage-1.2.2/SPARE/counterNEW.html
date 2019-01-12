@@ -5,42 +5,49 @@
   <meta charset="utf-8" />
   <title>Force Meter</title>
   <meta name="viewport" content="width=device-width">
+
   <style>
     .container {
-  width: 450px;
-  margin: 0 auto;
-  text-align: center;
-}
+      width: 450px;
+      margin: 0 auto;
+      text-align: center;
+    }
 
-.gauge {
-  width: 450px;
-  height: 450px;
-}
+    .gauge {
+      width: 450px;
+      height: 450px;
+    }
 
-a:link.button,
-a:active.button,
-a:visited.button,
-a:hover.button {
-  margin: 30px 5px 0 2px;
-  padding: 7px 13px;
-}
-</style>
+    a:link.button,
+    a:active.button,
+    a:visited.button,
+    a:hover.button {
+      margin: 30px 5px 0 2px;
+      padding: 7px 13px;
+    }
+  </style>
+
 </head>
 
+
 <body>
+
   <div class="container">
-    <div id="g1" class="gauge"> </div>
+    <div id="gg1" class="gauge"></div>
   </div>
-  <script src="raphael-2.1.4.min.js"> </script>
-  <script src="justgage.js"> </script>
-  <script type="text/javascript">
-    var g1;
-    var Analog0 = new Array(); // create the arrays for the analog readings here.
+
+  <script src="raphael-2.1.4.min.js"></script>
+  <script src="justgage.js"></script>
+  <script type="text/javascript">  // CHANGED TO OLD (WORKING) SETTING *&*
+    var gg1;                       // *&*
+    var Analog0 = new Array(); // *&* create the arrays for the analog readings here.
+
+
 
     document.addEventListener("DOMContentLoaded", function (event) {
-      console.log("DOM fully loaded and parsed");
-      g1 = new JustGage({
-        id: "g1",
+      console.log("DOM fully loaded and parsed");   // *&*
+      gg1 = new JustGage({                          // *&*
+        id: "gg1",
         title: "Force Meter",
         titleFontColor: "#000000",
         titleMinFontSize: 16,
@@ -73,14 +80,13 @@ a:hover.button {
           lo: 32,
           hi: 50
         }],
-        counter: true,
-        hideInnerShadow: true,
+        counter: true
       });
     });
 
     var connection = new WebSocket('ws://' + location.hostname + ':81/', ['arduino']);
     connection.onopen = function () {
-      connection.send('GET_FORCE');
+      connection.send('GET_TEMP');
     };
     console.log("connection opened");
     connection.onerror = function (error) {
@@ -124,6 +130,12 @@ a:hover.button {
       } // if (indicator)
     } // connection.onmessage
       ;
+
+
+
+
+
+
 
   </script>
 </body>
