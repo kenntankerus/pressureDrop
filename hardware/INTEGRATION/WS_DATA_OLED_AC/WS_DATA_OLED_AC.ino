@@ -246,6 +246,17 @@ bool handleFileRead(String path) {
 }
 
 void setupWiFi() {
+  if (!digitalRead(BUTTON_B)) {
+  WiFi.mode(WIFI_AP);
+  String AP_NameString = "ForceSensor";
+  char AP_NameChar[AP_NameString.length() + 1];
+  memset(AP_NameChar, 0, AP_NameString.length() + 1);
+
+  for (int i = 0; i < AP_NameString.length(); i++)
+  AP_NameChar[i] = AP_NameString.charAt(i);
+  WiFi.softAP(AP_NameChar, WiFiAPPSK);
+  }
+  else {
   //WiFiManager
   //Local intialization. Once its business is done, there is no need to keep it around
   WiFiManager wifiManager;
@@ -273,5 +284,5 @@ void setupWiFi() {
   Serial.println("wifi connected...");
   Serial.print("network ID:\n  "); Serial.println(WiFi.SSID());
   Serial.print("local ip:\n  "); ; Serial.println(WiFi.localIP()); delay(2000);
-
+  }
 }
