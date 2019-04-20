@@ -247,42 +247,45 @@ bool handleFileRead(String path) {
 
 void setupWiFi() {
   if (!digitalRead(BUTTON_B)) {
-  WiFi.mode(WIFI_AP);
-  String AP_NameString = "ForceSensor";
-  char AP_NameChar[AP_NameString.length() + 1];
-  memset(AP_NameChar, 0, AP_NameString.length() + 1);
-
-  for (int i = 0; i < AP_NameString.length(); i++)
-  AP_NameChar[i] = AP_NameString.charAt(i);
-  WiFi.softAP(AP_NameChar, WiFiAPPSK);
+    WiFi.mode(WIFI_AP);
+    String AP_NameString = "ForceSensor";
+    char AP_NameChar[AP_NameString.length() + 1];
+    memset(AP_NameChar, 0, AP_NameString.length() + 1);
+  
+    for (int i = 0; i < AP_NameString.length(); i++)
+    AP_NameChar[i] = AP_NameString.charAt(i);
+    WiFi.softAP(AP_NameChar, WiFiAPPSK);
+  }
+  else if (!digitalRead(BUTTON_C)) {
+    
   }
   else {
-  //WiFiManager
-  //Local intialization. Once its business is done, there is no need to keep it around
-  WiFiManager wifiManager;
-
-  //exit after config instead of connecting
-  wifiManager.setBreakAfterConfig(true);
-
-  //tries to connect to last known settings
-  //if it does not connect it starts an access point with the specified name
-  //here  "AutoConnectAP" with password "password"
-  //and goes into a blocking loop awaiting configuration
-  if (!wifiManager.autoConnect("AutoConnectAP", "password")) {
+    //WiFiManager
+    //Local intialization. Once its business is done, there is no need to keep it around
+    WiFiManager wifiManager;
+  
+    //exit after config instead of connecting
+    wifiManager.setBreakAfterConfig(true);
+  
+    //tries to connect to last known settings
+    //if it does not connect it starts an access point with the specified name
+    //here  "AutoConnectAP" with password "password"
+    //and goes into a blocking loop awaiting configuration
+    if (!wifiManager.autoConnect("AutoConnectAP", "password")) {
+      display.clearDisplay(); display.setTextSize(1); display.setCursor(0, 0);
+      display.printf("/nfailed to connect/n retrying..."); display.display();
+      
+      Serial.println("failed to connect, we should reset as see if it connects");
+      delay(3000); ESP.reset(); delay(5000);
+    }
+  
+    //if you get here you have connected to the WiFi
     display.clearDisplay(); display.setTextSize(1); display.setCursor(0, 0);
-    display.printf("/nfailed to connect/n retrying..."); display.display();
-    
-    Serial.println("failed to connect, we should reset as see if it connects");
-    delay(3000); ESP.reset(); delay(5000);
-  }
-
-  //if you get here you have connected to the WiFi
-  display.clearDisplay(); display.setTextSize(1); display.setCursor(0, 0);
-  display.print("connected to:\n  "); display.println(WiFi.SSID());
-  display.print("IP Address:\n  "); display.println(WiFi.localIP());
-  display.display();
-  Serial.println("wifi connected...");
-  Serial.print("network ID:\n  "); Serial.println(WiFi.SSID());
-  Serial.print("local ip:\n  "); ; Serial.println(WiFi.localIP()); delay(2000);
+    display.print("connected to:\n  "); display.println(WiFi.SSID());
+    display.print("IP Address:\n  "); display.println(WiFi.localIP());
+    display.display();
+    Serial.println("wifi connected...");
+    Serial.print("network ID:\n  "); Serial.println(WiFi.SSID());
+    Serial.print("local ip:\n  "); ; Serial.println(WiFi.localIP()); delay(2000);
   }
 }
