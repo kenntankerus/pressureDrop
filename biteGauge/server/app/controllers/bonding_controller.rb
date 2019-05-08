@@ -1,0 +1,3 @@
+class BondingController < ApplicationController
+     
+end
