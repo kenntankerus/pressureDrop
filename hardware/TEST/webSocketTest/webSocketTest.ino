@@ -176,7 +176,7 @@ WiFi.softAP(AP_NameChar, WiFiAPPSK);
 
 void setup() {
 delay(1000);
-Serial.begin(115200);
+Serial.begin(9600);
 SPIFFS.begin();
 Serial.println();
 Serial.print("Configuring access point...");
