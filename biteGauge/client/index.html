@@ -10,10 +10,39 @@
     Node <script>document.write(process.versions.node)</script><br />
     Chromium <script>document.write(process.versions.chrome)</script><br />
     Electron <script>document.write(process.versions.electron)</script>
-
+    <div>
+      <h3>Sign In</h3>
+      <form>
+        <input></input>
+        <button type="submit">Sign In</button>
+      </form>
+    </div>
+    <div>
+      <h3>Add a new Patient</h3>
+      <button id="newPatientBtn">Add Patient</button>
+    </div>
+    <div>
+      <!-- Search over all patients and session records -->
+      <h3>Search</h3>
+      <form>
+          <input></input>
+          <button type="submit" id="searchBtn">Search</button>
+        </form>
+    </div>
+    <div>
+      <h3>Start a Session</h3>
+      <button id="startSessionBtn">Start Session</button>
+    </div>
     <script>
       // You can also require other files to run in this process
       require('./renderer.js')
+
+      // const startSession = document.querySelector('#startSessionBtn');
+      const startSession = document.getElementById('startSessionBtn')
+      
+      startSession.onclick = () => {
+        console.log("Start session pressed");
+      }
     </script>
   </body>
 </html>

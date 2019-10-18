@@ -1,15 +1,15 @@
 {
-"name": "bite-gauge",
-"version": "0.1.0",
-"description": "Bite Gauge Application",
-"main": "app.js",
-"scripts": {
-"start": "electron ."
-},
-"repository":"https://github.com/kenntankerus/pressureDrop",
-"author": "Shaun White",
-"license": "Proprietary Software Licenses",
-"devDependencies": {
-"electron": "^4.1.4"
-}
+  "name": "bite-gauge",
+  "version": "0.1.0",
+  "description": "Bite Gauge Application",
+  "main": "app.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "repository": "https://github.com/kenntankerus/pressureDrop",
+  "author": "Shaun White",
+  "license": "Proprietary Software Licenses",
+  "devDependencies": {
+    "electron": "^4.1.4"
+  }
 }

@@ -1,4 +1,6 @@
-// Modules to control application life and create native browser window
+// Make all APIs and features found in Electron are accessible through electron const
+const electron = require('electron')
+// Modules to control application lifecycle and create native browser window
 const {app, BrowserWindow} = require('electron')
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -6,10 +8,10 @@ const {app, BrowserWindow} = require('electron')
 let mainWindow
 
 function createWindow () {
-  // Create the browser window.
-  mainWindow = new BrowserWindow({
-    width: 800,
-    height: 600,
+  // Create the core browser window.
+  let mainWindow = new BrowserWindow({
+    width: 1280,
+    height: 854 ,
     webPreferences: {
       nodeIntegration: true
     }
