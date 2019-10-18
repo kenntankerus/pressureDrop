@@ -1,2 +1,6 @@
 # pressureDrop
-ode to big Ken
+
+clone the repo
+cd into the client folder
+npm install
+npm start
