@@ -8,7 +8,8 @@ Things you may want to cover:
 * Ruby version
 
 * System dependencies
-
+    - Devise
+    - 
 * Configuration
 
 * Database creation
